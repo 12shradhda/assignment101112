@@ -1,0 +1,553 @@
+
+
+1. Counting Vowels and Consonants
+
+*java
+import java.util.Scanner;
+
+public class VowelConsonantCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a sentence: ");
+        String sentence = scanner.nextLine().toLowerCase();
+
+        int vowelCount = 0;
+        int consonantCount = 0;
+
+        for (int i = 0; i < sentence.length(); i++) {
+            char ch = sentence.charAt(i);
+            if (Character.isLetter(ch)) {
+                if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u') {
+                    vowelCount++;
+                } else {
+                    consonantCount++;
+                }
+            }
+        }
+
+        System.out.println("Number of vowels: " + vowelCount);
+        System.out.println("Number of consonants: " + consonantCount);
+    }
+}
+
+
+2. BankAccount Class
+
+*java
+public class BankAccount {
+    private String accountNumber;
+    private String accountHolderName;
+    private double balance;
+
+    public BankAccount(String accountNumber, String accountHolderName) {
+        this.accountNumber = accountNumber;
+        this.accountHolderName = accountHolderName;
+        this.balance = 0.0;
+    }
+
+    public void deposit(double amount) {
+        balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount <= balance) {
+            balance -= amount;
+        } else {
+            System.out.println("Insufficient balance!");
+        }
+    }
+
+    public void displayAccountDetails() {
+        System.out.println("Account Number: " + accountNumber);
+        System.out.println("Account Holder Name: " + accountHolderName);
+        System.out.println("Balance: " + balance);
+    }
+}
+
+
+3. Shape Interface and its Implementations
+
+java
+public interface Shape {
+    double calculateArea();
+
+    double calculatePerimeter();
+}
+
+public class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+public class Rectangle implements Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+public class Triangle implements Shape {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    @Override
+    public double calculateArea() {
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+
+Sure! Here are the solutions to your additional Java programming tasks:
+
+4. Shape Interface and Implementations
+
+*java
+public interface Shape {
+    double calculateArea();
+
+    double calculatePerimeter();
+}
+
+public class Circle implements Shape {
+    private double radius;
+
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+}
+
+public class Rectangle implements Shape {
+    private double length;
+    private double width;
+
+    public Rectangle(double length, double width) {
+        this.length = length;
+        this.width = width;
+    }
+
+    @Override
+    public double calculateArea() {
+        return length * width;
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return 2 * (length + width);
+    }
+}
+
+public class Triangle implements Shape {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    @Override
+    public double calculateArea() {
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    @Override
+    public double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+}
+
+public class ShapeDemo {
+    public static void main(String[] args) {
+        Circle circle = new Circle(5.0);
+        Rectangle rectangle = new Rectangle(4.0, 6.0);
+        Triangle triangle = new Triangle(3.0, 4.0, 5.0);
+
+        System.out.println("Circle:");
+        System.out.println("Area: " + circle.calculateArea());
+        System.out.println("Perimeter: " + circle.calculatePerimeter());
+
+        System.out.println("Rectangle:");
+        System.out.println("Area: " + rectangle.calculateArea());
+        System.out.println("Perimeter: " + rectangle.calculatePerimeter());
+
+        System.out.println("Triangle:");
+        System.out.println("Area: " + triangle.calculateArea());
+        System.out.println("Perimeter: " + triangle.calculatePerimeter());
+    }
+}
+```
+
+5. Text-Based Game
+
+java
+public class Player {
+    private int x;
+    private int y;
+
+    public Player(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void moveUp() {
+        y--;
+    }
+
+    public void moveDown() {
+        y++;
+    }
+
+    public void moveLeft() {
+        x--;
+    }
+
+    public void moveRight() {
+        x++;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public int getY() {
+        return y;
+    }
+}
+
+public class Game {
+    private Player player;
+    private int goalX;
+    private int goalY;
+
+    public Game(int playerX, int playerY, int goalX, int goalY) {
+        player = new Player(playerX, playerY);
+        this.goalX = goalX;
+        this.goalY = goalY;
+    }
+
+    public void movePlayerUp() {
+        player.moveUp();
+    }
+
+    public void movePlayerDown() {
+        player.moveDown();
+    }
+
+    public void movePlayerLeft() {
+        player.moveLeft();
+    }
+
+    public void movePlayerRight() {
+    }
+    
+   6 . implementation of the `Library` class and the `Book` class to manage a collection of books
+
+*java
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Library {
+    private List<Book> books;
+
+    public Library() {
+        books = new ArrayList<>();
+    }
+
+    public void addBook(Book book) {
+        books.add(book);
+        System.out.println("Book added: " + book.getTitle());
+    }
+
+    public void removeBook(Book book) {
+        if (books.remove(book)) {
+            System.out.println("Book removed: " + book.getTitle());
+        } else {
+            System.out.println("Book not found: " + book.getTitle());
+        }
+    }
+
+    public List<Book> searchByTitle(String title) {
+        List<Book> searchResults = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getTitle().equalsIgnoreCase(title)) {
+                searchResults.add(book);
+            }
+        }
+        return searchResults;
+    }
+
+    public List<Book> searchByAuthor(String author) {
+        List<Book> searchResults = new ArrayList<>();
+        for (Book book : books) {
+            if (book.getAuthor().equalsIgnoreCase(author)) {
+                searchResults.add(book);
+            }
+        }
+        return searchResults;
+    }
+
+    public void displayBooks() {
+        System.out.println("Available Books:");
+        for (Book book : books) {
+            System.out.println(book);
+        }
+    }
+}
+
+public class Book {
+    private int bookId;
+    private String title;
+    private String author;
+    private double price;
+    private int publicationYear;
+
+    public Book(int bookId, String title, String author, double price, int publicationYear) {
+        this.bookId = bookId;
+        this.title = title;
+        this.author = author;
+        this.price = price;
+        this.publicationYear = publicationYear;
+    }
+
+    public int getBookId() {
+        return bookId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getPublicationYear() {
+        return publicationYear;
+    }
+
+    @Override
+    public String toString() {
+        return "Book [ID: " + bookId + ", Title: " + title + ", Author: " + author +
+                ", Price: " + price + ", Publication Year: " + publicationYear + "]";
+    }
+}
+
+public class LibraryDemo {
+    public static void main(String[] args) {
+        Library library = new Library();
+
+        Book book1 = new Book(1, "The Great Gatsby", "F. Scott Fitzgerald", 9.99, 1925);
+        Book book2 = new Book(2, "To Kill a Mockingbird", "Harper Lee", 8.99, 1960);
+        Book book3 = new Book(3, "Pride and Prejudice", "Jane Austen", 7.99, 1813);
+
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
+
+        library.displayBooks();
+
+        List<Book> searchResults = library.searchByAuthor("Harper Lee");
+        System.out.println("\nSearch Results (Author: Harper Lee):");
+        for (Book book : searchResults) {
+            System.out.println(book);
+        }
+
+        library.removeBook(book2);
+
+        library.displayBooks();
+    }
+}
+
+SQL
+
+7 . Write SQL queries to perform the following operations:
+
+a) Insert at least 5 records into the Books table:
+
+INSERT INTO Books (book_id, title, author, price, publication_year)
+VALUES (1, 'Book 1', 'Author 1', 9.99, 2020);
+
+INSERT INTO Books (book_id, title, author, price, publication_year)
+VALUES (2, 'Book 2', 'Author 2', 14.99, 2018);
+
+INSERT INTO Books (book_id, title, author, price, publication_year)
+VALUES (3, 'Book 3', 'Author 3', 7.99, 2021);
+
+INSERT INTO Books (book_id, title, author, price, publication_year)
+VALUES (4, 'Book 4', 'Author 1', 12.99, 2019);
+
+INSERT INTO Books (book_id, title, author, price, publication_year)
+VALUES (5, 'Book 5', 'Author 4', 10.99, 2022);
+
+
+b) Insert at least 3 records into the Customers table:
+
+INSERT INTO Customers (customer_id, name, email, phone_number)
+VALUES (1, 'Customer 1', 'customer1@example.com', '123-456-7890');
+
+INSERT INTO Customers (customer_id, name, email, phone_number)
+VALUES (2, 'Customer 2', 'customer2@example.com', '987-654-3210');
+
+INSERT INTO Customers (customer_id, name, email, phone_number)
+VALUES (3, 'Customer 3', 'customer3@example.com', '555-555-5555');
+```
+
+c) Insert at least 7 records into the Assignments table:
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (1, 1);
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (1, 2);
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (2, 1);
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (2, 3);
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (3, 2);
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (4, 3);
+
+INSERT INTO Assignments (employee_id, project_id)
+VALUES (5, 
+
+8. Write SQL queries to perform the following tasks:
+Certainly! Here are the SQL queries to perform the requested tasks:
+
+a. Retrieve the names of all employees:
+
+SELECT name FROM Employees;
+
+
+b. Retrieve the projects that are currently active (i.e., have not ended):
+
+SELECT * FROM Projects WHERE end_date > CURDATE();
+```
+
+c. Retrieve the department of a specific employee:
+
+SELECT department FROM Employees WHERE id = {employee_id};
+
+Replace `{employee_id}` with the specific ID of the employee you want to retrieve the department for.
+
+d. Retrieve the employees assigned to a specific project:
+
+SELECT e.* FROM Employees e
+INNER JOIN Assignments a ON e.id = a.employee_id
+WHERE a.project_id = {project_id};
+
+Replace `{project_id}` with the specific ID of the project you want to retrieve the assigned employees for.
+
+9. Write SQL queries to create the following views:
+
+a. Create a view called ActiveProjects that includes the project name and start date for active projects:
+
+
+CREATE VIEW ActiveProjects AS
+SELECT name, start_date
+FROM Projects
+WHERE end_date > CURDATE();
+
+
+b. Create a view called EmployeeAssignments that includes the employee name, project name, and department:
+
+
+CREATE VIEW EmployeeAssignments AS
+SELECT e.name AS employee_name, p.name AS project_name, e.department
+FROM Employees e
+JOIN Assignments a ON e.id = a.employee_id
+JOIN Projects p ON a.project_id = p.id;
+
+
+10. Write SQL queries to perform the following tasks:
+
+a. Retrieve the names of employees who are assigned to any project:
+
+SELECT DISTINCT e.name
+FROM Employees e
+INNER JOIN Assignments a ON e.id = a.employee_id;
+
+
+b. Retrieve the projects with the earliest start date:
+
+SELECT *
+FROM Projects
+WHERE start_date = (SELECT MIN(start_date) FROM Projects);
+
+c. Retrieve the employee names and their corresponding project names:
+
+
+SELECT e.name AS employee_name, p.name AS project_name
+FROM Employees e
+INNER JOIN Assignments a ON e.id = a.employee_id
+INNER JOIN Projects p ON a.project_id = p.id;
+
+
+d. Retrieve the names of employees who are not assigned to any project:
+
+SELECT e.name
+FROM Employees e
+LEFT JOIN Assignments a ON e.id = a.employee_id
+WHERE a.employee_id IS NULL;
+
+   
